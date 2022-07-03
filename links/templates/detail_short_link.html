@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short link: {{ object.slug }}</title>
+</head>
+<body>
+<h2>Short link: {{ object.slug }}</h2>
+<table>
+    <tr>
+        <td>Full url:</td>
+        <td><a href="{{ object.link }}">{{ object.link }}</a></td>
+    </tr>
+    <tr>
+        <td>Short url:</td>
+        <td><a href="{{ short_link }}">{{ short_link }}</a></td>
+    </tr>
+    <tr>
+        <td>Redirect count:</td>
+        <td>{{ object.redirect_count }}</td>
+    </tr>
+    <tr>
+        <td>Created at:</td>
+        <td>{{ object.created_at }}</td>
+    </tr>
+</table>
+</body>
+</html>
