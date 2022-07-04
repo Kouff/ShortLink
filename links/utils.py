@@ -12,7 +12,7 @@ def generate_slug(n: int) -> str:
 
 
 def create_short_link(link: str) -> Link:
-    for _ in range(10):
+    while True:
         slug = generate_slug(7)
         try:
             return Link.objects.create(link=link, slug=slug)
