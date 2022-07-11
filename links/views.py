@@ -1,3 +1,4 @@
+from django.db.models import F
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
@@ -34,6 +35,5 @@ class RedirectShortLinkView(SingleObjectMixin, View):
 
     def get(self, request, *args, **kwargs):
         link_obj = self.get_object()
-        link_obj.redirect_count += 1
-        link_obj.save(update_fields=('redirect_count',))
+        Link.objects.filter(id=link_obj.id).update(redirect_count=F('redirect_count') + 1)
         return HttpResponseRedirect(link_obj.link)
